@@ -21,9 +21,8 @@ module.exports = {
             body: `secret=${process.env.GOOGLE_CAPTCHA_SECRET_KEY}&response=${captchaResponse}`,
         }).then(res => res.json());
 
-        console.log("/api/contact/create/ ", process.env.GOOGLE_CAPTCHA_SECRET_KEY);
         const { success } = captchaData
-        if (success || captchaResponse === 'red') {
+        if (success || (captchaResponse === 'red' && process.env.NODE_ENV === 'development')) {
             return {
                 success: true,
                 message: "Contact request received!"
