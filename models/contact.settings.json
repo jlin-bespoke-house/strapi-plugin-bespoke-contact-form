@@ -1,0 +1,53 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contacts",
+  "info": {
+    "name": "Contact",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "unique": false,
+      "required": true
+    },
+    "emailAddress": {
+      "type": "email",
+      "required": true
+    },
+    "cellPhone": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "groupName": {
+      "type": "string",
+      "required": true
+    },
+    "dateDesired": {
+      "type": "string",
+      "required": true
+    },
+    "numberOfRooms": {
+      "type": "integer",
+      "required": true
+    },
+    "questions": {
+      "type": "text",
+      "default": "none",
+      "required": true
+    }
+  }
+}

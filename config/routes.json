@@ -1,0 +1,20 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/",
+      "handler": "bespoke-contact-form.index",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/contacts",
+      "handler": "contact.create",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

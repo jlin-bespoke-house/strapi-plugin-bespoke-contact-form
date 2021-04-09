@@ -1,0 +1,28 @@
+{
+  "name": "strapi-plugin-bespoke-contact-form",
+  "version": "0.0.0",
+  "description": "This is the description of the plugin.",
+  "strapi": {
+    "name": "Bespoke Contact Form",
+    "icon": "id-card",
+    "description": "Plugin for accepting contact forms and sending notification."
+  },
+  "dependencies": {},
+  "author": {
+    "name": "linjohnjohn",
+    "email": "",
+    "url": ""
+  },
+  "maintainers": [
+    {
+      "name": "A Strapi developer",
+      "email": "",
+      "url": ""
+    }
+  ],
+  "engines": {
+    "node": ">=10.16.0 <=14.x.x",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}
