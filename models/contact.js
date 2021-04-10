@@ -8,9 +8,6 @@
 const _ = require('lodash');
 const { contactEmailTemplate } = require('../emailTemplates');
 
-_.templateSettings = {
-    interpolate: /\{\{(.+?)\}\}/g,
-};
 module.exports = {
     lifecycles: {
         afterCreate: async (result, data) => {
