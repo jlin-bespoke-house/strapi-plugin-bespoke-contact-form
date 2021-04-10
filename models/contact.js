@@ -12,8 +12,9 @@ module.exports = {
     lifecycles: {
         afterCreate: async (result, data) => {
             try {
+                const recipients = process.env.BESPOKE_CONTACT_FORM_EMAIL.split(' ');
                 await strapi.plugins.email.services.email.sendTemplatedEmail({
-                    to: process.env.BESPOKE_CONTACT_FORM_EMAIL,
+                    to: recipients,
                     replyTo: data.emailAddress
                 },
                 contactEmailTemplate,
