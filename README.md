@@ -5,6 +5,6 @@ Strapi plugin allowing for contact form submission (with Bespoke) along with an 
 ## Required ENV VARIABLES
 
 ```
-SENDGRID_API_KEY
+GOOGLE_CAPTCHA_SECRET_KEY
 BESPOKE_CONTACT_FORM_EMAIL - email where notification will be sent
 ```

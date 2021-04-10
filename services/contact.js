@@ -1,11 +1,25 @@
 'use strict';
 const { isDraft: isDraftFn } = require('strapi-utils').contentTypes;
+const fetch = require('node-fetch');
 
 /**
  * `contact` service.
  */
 
 module.exports = {
+  async verifyCaptcha(captchaResponse) {
+    return await fetch('https://www.google.com/recaptcha/api/siteverify', {
+      method: 'POST',
+      headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: `secret=${process.env.GOOGLE_CAPTCHA_SECRET_KEY}&response=${captchaResponse}`,
+    }).then(res => res.json())
+    .catch(err => {
+      console.log('bespoke-contact-form/services/contact/verifyCaptcha', err);
+      return { success: false };
+    });
+  },
   async create(data, { files } = {}) {
     const isDraft = isDraftFn(data, strapi.plugins['bespoke-contact-form'].models.contact);
     const validData = await strapi.entityValidator.validateEntityCreation(
