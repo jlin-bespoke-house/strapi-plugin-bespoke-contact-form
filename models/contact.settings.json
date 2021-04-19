@@ -48,6 +48,11 @@
       "type": "text",
       "default": "none",
       "required": true
+    },
+    "bookingType": {
+      "type": "string",
+      "default": "General",
+      "required": true
     }
   }
 }

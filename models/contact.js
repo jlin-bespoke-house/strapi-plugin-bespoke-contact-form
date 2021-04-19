@@ -18,7 +18,7 @@ module.exports = {
                     replyTo: data.emailAddress
                 },
                 contactEmailTemplate,
-                _.pick(data, ['firstName', 'lastName', 'emailAddress', 'cellPhone', 'city', 'groupName', 'dateDesired', 'numberOfRooms', 'questions']));
+                _.pick(data, ['firstName', 'lastName', 'emailAddress', 'cellPhone', 'city', 'groupName', 'dateDesired', 'numberOfRooms', 'questions', 'bookingType']));
             } catch (e) {
                 console.log('bespoke-contact-form/models/contact/afterCreate', e);
 
