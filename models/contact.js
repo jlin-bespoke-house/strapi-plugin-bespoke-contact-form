@@ -12,13 +12,16 @@ module.exports = {
     lifecycles: {
         afterCreate: async (result, data) => {
             try {
+                const { firstName, lastName, emailAddress } = data;
+                await strapi.plugins['bespoke-contact-form'].services.contact.subscribeToMailchimp(firstName, lastName, emailAddress);
+
                 const recipients = process.env.BESPOKE_CONTACT_FORM_EMAIL.split(' ');
                 await strapi.plugins.email.services.email.sendTemplatedEmail({
                     to: recipients,
                     replyTo: data.emailAddress
                 },
-                contactEmailTemplate,
-                _.pick(data, ['firstName', 'lastName', 'emailAddress', 'cellPhone', 'city', 'groupName', 'dateDesired', 'numberOfRooms', 'questions', 'bookingType']));
+                    contactEmailTemplate,
+                    _.pick(data, ['firstName', 'lastName', 'emailAddress', 'cellPhone', 'city', 'groupName', 'dateDesired', 'numberOfRooms', 'questions', 'bookingType']));
             } catch (e) {
                 console.log('bespoke-contact-form/models/contact/afterCreate', e);
 

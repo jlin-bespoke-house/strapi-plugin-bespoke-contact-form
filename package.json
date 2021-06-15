@@ -7,7 +7,9 @@
     "icon": "id-card",
     "description": "Plugin for accepting contact forms and sending notification."
   },
-  "dependencies": {},
+  "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.47"
+  },
   "author": {
     "name": "linjohnjohn",
     "email": "",
