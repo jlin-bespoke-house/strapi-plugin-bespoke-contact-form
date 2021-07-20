@@ -12,8 +12,11 @@ module.exports = {
     lifecycles: {
         afterCreate: async (result, data) => {
             try {
-                const { firstName, lastName, emailAddress } = data;
-                await strapi.plugins['bespoke-contact-form'].services.contact.subscribeToMailchimp(firstName, lastName, emailAddress);
+                const { firstName, lastName, emailAddress, isSubscribed } = data;
+
+                if (isSubscribed) {
+                    await strapi.plugins['bespoke-contact-form'].services.contact.subscribeToMailchimp(firstName, lastName, emailAddress);
+                }
 
                 const recipients = process.env.BESPOKE_CONTACT_FORM_EMAIL.split(' ');
                 await strapi.plugins.email.services.email.sendTemplatedEmail({

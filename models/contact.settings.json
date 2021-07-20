@@ -53,6 +53,10 @@
       "type": "string",
       "default": "General",
       "required": true
+    },
+    "isSubscribed": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
