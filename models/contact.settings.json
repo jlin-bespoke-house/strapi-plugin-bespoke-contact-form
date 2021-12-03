@@ -44,6 +44,9 @@
       "type": "integer",
       "required": true
     },
+    "numberOfGuests": {
+      "type": "integer"
+    },
     "questions": {
       "type": "text",
       "default": "none",

@@ -13,7 +13,6 @@ module.exports = {
         afterCreate: async (result, data) => {
             try {
                 const { firstName, lastName, emailAddress, isSubscribed } = data;
-
                 if (isSubscribed) {
                     await strapi.plugins['bespoke-contact-form'].services.contact.subscribeToMailchimp(firstName, lastName, emailAddress);
                 }
@@ -24,7 +23,7 @@ module.exports = {
                     replyTo: data.emailAddress
                 },
                     contactEmailTemplate,
-                    _.pick(data, ['firstName', 'lastName', 'emailAddress', 'cellPhone', 'city', 'groupName', 'dateDesired', 'numberOfRooms', 'questions', 'bookingType']));
+                    _.pick(data, ['firstName', 'lastName', 'emailAddress', 'cellPhone', 'city', 'groupName', 'dateDesired', 'numberOfRooms', 'numberOfGuests', 'questions', 'bookingType']));
             } catch (e) {
                 console.log('bespoke-contact-form/models/contact/afterCreate', e);
 
